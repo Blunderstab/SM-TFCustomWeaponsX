@@ -511,9 +511,7 @@ int FindBaseItem(TFClassType playerClass, int loadoutSlot) {
 }
 
 bool FilterBaseItems(int itemdef, any __) {
-	Address pItemDef = TF2Econ_GetItemDefinitionAddress(itemdef);
-	return pItemDef?
-			!!LoadFromAddress(pItemDef + view_as<Address>(0xE6), NumberType_Int8) : false;
+	return TF2Econ_IsItemInBaseSet(itemdef);
 }
 
 // bool CWX_SetPlayerLoadoutItem(int client, TFClassType playerClass, const char[] uid, int flags = 0);
